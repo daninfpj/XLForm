@@ -139,6 +139,12 @@
     }
     self.dynamicCustomConstraints = [NSMutableArray array];
     NSDictionary * views = @{@"segmentedControl": self.segmentedControl, @"textLabel": self.textLabel};
+
+    [self.dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"[segmentedControl(>=100)]"
+                                                                                               options:0
+                                                                                               metrics:0
+                                                                                                 views:views]];
+
     if (self.textLabel.text.length > 0){
         [self.dynamicCustomConstraints addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[textLabel]-16-[segmentedControl]-|"
                                                                                 options:NSLayoutFormatAlignAllCenterY
